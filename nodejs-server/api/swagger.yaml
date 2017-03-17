@@ -21,8 +21,12 @@ paths:
       parameters:
       - name: "mode"
         in: "path"
+        description: "0 == this, 1 == that, 2 == the other"
         required: true
         type: "integer"
+        maximum: 2
+        minimum: 0
+        format: "int32"
       responses:
         200:
           description: "Run mode response"
@@ -68,7 +72,7 @@ definitions:
         format: "int32"
       message:
         type: "string"
-        example: "everything is ok"
+        example: "Everything is ok"
   PhyConfig:
     type: "object"
     properties:

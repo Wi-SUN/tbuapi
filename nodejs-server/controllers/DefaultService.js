@@ -24,7 +24,7 @@ exports.phyPUT = function(args, res, next) {
     var examples = {};
   examples['application/json'] = {
   "code" : 123,
-  "message" : "everything is ok"
+  "message" : "Everything is ok"
 };
   if(Object.keys(examples).length > 0) {
     res.setHeader('Content-Type', 'application/json');
@@ -44,7 +44,7 @@ exports.runModeModePUT = function(args, res, next) {
     var examples = {};
   examples['application/json'] = {
   "code" : 123,
-  "message" : "everything is ok"
+  "message" : "Everything is ok"
 };
   if(Object.keys(examples).length > 0) {
     res.setHeader('Content-Type', 'application/json');
