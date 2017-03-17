@@ -24,9 +24,11 @@ paths:
         description: "0 == this, 1 == that, 2 == the other"
         required: true
         type: "integer"
-        maximum: 2
-        minimum: 0
         format: "int32"
+        enum:
+        - 0
+        - 1
+        - 2
       responses:
         200:
           description: "Run mode response"
