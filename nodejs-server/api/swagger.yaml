@@ -32,10 +32,14 @@ paths:
           description: "Run mode response"
           schema:
             $ref: "#/definitions/ApiResponse"
+        400:
+          description: "Illegal runMode"
+          schema:
+            $ref: "#/definitions/ApiResponse"
       x-swagger-router-controller: "Default"
   /phy:
     put:
-      description: "Configure the PHY"
+      description: "Configure the PHY layer"
       operationId: "phyPUT"
       parameters:
       - in: "body"
@@ -70,18 +74,25 @@ definitions:
       code:
         type: "integer"
         format: "int32"
+        description: "Return code. 0 == Success"
       message:
         type: "string"
         example: "Everything is ok"
+        description: "Return code description"
+    description: "TBU API return code and return code description."
   PhyConfig:
     type: "object"
     properties:
       modulation:
         type: "integer"
+        description: "TBD"
       symbolRate:
         type: "integer"
+        description: "TBD"
       modulationIndex:
         type: "integer"
+        description: "TBD"
       transmitPower:
         type: "integer"
-    description: "Phy configuration object"
+        description: "TBD"
+    description: "TBD"
