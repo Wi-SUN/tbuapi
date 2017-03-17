@@ -1,0 +1,83 @@
+---
+swagger: "2.0"
+info:
+  description: "Test Bed Unit API"
+  version: "1.0.0"
+  title: "TBU API"
+host: "virtserver.swaggerhub.com"
+basePath: "/woobagooba/TBU/1.0.0"
+schemes:
+- "https"
+- "http"
+consumes:
+- "application/json"
+produces:
+- "application/json"
+paths:
+  /runMode/{mode}:
+    put:
+      description: "Set the run mode of the TBU"
+      operationId: "runModeModePUT"
+      parameters:
+      - name: "mode"
+        in: "path"
+        required: true
+        type: "integer"
+      responses:
+        200:
+          description: "Run mode response"
+          schema:
+            $ref: "#/definitions/ApiResponse"
+      x-swagger-router-controller: "Default"
+  /phy:
+    put:
+      description: "Configure the PHY"
+      operationId: "phyPUT"
+      parameters:
+      - in: "body"
+        name: "body"
+        required: true
+        schema:
+          $ref: "#/definitions/PhyConfig"
+      responses:
+        200:
+          description: "Set run mode response"
+          schema:
+            $ref: "#/definitions/ApiResponse"
+      x-swagger-router-controller: "Default"
+  /ipAddresses:
+    get:
+      description: "Returns all IPv6 addresses provisioned to the node."
+      operationId: "ipAddressesGET"
+      parameters: []
+      responses:
+        200:
+          description: "IPv6 addresses provisioned to the node."
+          schema:
+            type: "array"
+            items:
+              type: "string"
+              example: "FF02::1"
+      x-swagger-router-controller: "Default"
+definitions:
+  ApiResponse:
+    type: "object"
+    properties:
+      code:
+        type: "integer"
+        format: "int32"
+      message:
+        type: "string"
+        example: "everything is ok"
+  PhyConfig:
+    type: "object"
+    properties:
+      modulation:
+        type: "integer"
+      symbolRate:
+        type: "integer"
+      modulationIndex:
+        type: "integer"
+      transmitPower:
+        type: "integer"
+    description: "Phy configuration object"
