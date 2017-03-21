@@ -5,7 +5,7 @@ info:
   version: "1.0.0"
   title: "TBU API"
 host: "virtserver.swaggerhub.com"
-basePath: "/woobagooba/TBU/1.0.0"
+basePath: "/Wi-SUN/TBU/1.0.0"
 schemes:
 - "https"
 - "http"
