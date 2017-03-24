@@ -1,0 +1,100 @@
+---
+swagger: "2.0"
+info:
+  description: "Test Bed Unit API"
+  version: "1.0.0"
+  title: "TBU API"
+host: "virtserver.swaggerhub.com"
+basePath: "/Wi-SUN/TBU/1.0.0"
+schemes:
+- "https"
+- "http"
+consumes:
+- "application/json"
+produces:
+- "application/json"
+paths:
+  /runMode/{mode}:
+    put:
+      description: "Set the run mode of the TBU"
+      operationId: "runModeModePUT"
+      parameters:
+      - name: "mode"
+        in: "path"
+        description: "0 == this, 1 == that, 2 == the other"
+        required: true
+        type: "integer"
+        format: "int32"
+        enum:
+        - 0
+        - 1
+        - 2
+      responses:
+        200:
+          description: "Run mode response"
+          schema:
+            $ref: "#/definitions/ApiResponse"
+        400:
+          description: "Illegal runMode"
+          schema:
+            $ref: "#/definitions/ApiResponse"
+      x-swagger-router-controller: "Default"
+  /phy:
+    put:
+      description: "Configure the PHY layer"
+      operationId: "phyPUT"
+      parameters:
+      - in: "body"
+        name: "body"
+        required: true
+        schema:
+          $ref: "#/definitions/PhyConfig"
+      responses:
+        200:
+          description: "Set run mode response"
+          schema:
+            $ref: "#/definitions/ApiResponse"
+      x-swagger-router-controller: "Default"
+  /ipAddresses:
+    get:
+      description: "Returns all IPv6 addresses provisioned to the node."
+      operationId: "ipAddressesGET"
+      parameters: []
+      responses:
+        200:
+          description: "IPv6 addresses provisioned to the node."
+          schema:
+            type: "array"
+            items:
+              type: "string"
+              example: "FF02::1"
+      x-swagger-router-controller: "Default"
+definitions:
+  ApiResponse:
+    type: "object"
+    properties:
+      code:
+        type: "integer"
+        format: "int32"
+        description: "Return code. 0 == Success"
+      message:
+        type: "string"
+        example: "Everything is ok"
+        description: "Return code description"
+    description: "TBU API return code and return code description."
+  PhyConfig:
+    type: "object"
+    properties:
+      modulation:
+        type: "integer"
+        description: "TBD"
+      symbolRate:
+        type: "integer"
+        description: "TBD"
+      modulationIndex:
+        type: "integer"
+        description: "TBD"
+      transmitPower:
+        type: "integer"
+        description: "TBD"
+    description: "TBD"
