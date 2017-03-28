@@ -115,10 +115,10 @@ definitions:
     properties:
       pmk:
         type: "string"
-        description: "Pairwise Master Key (unique Router - Border Router)"
+        description: "Pairwise Master Key (unique Router <> Border Router)"
       ptk:
         type: "string"
-        description: "Pairwise Temporal Key (unique Router - Border Router)"
+        description: "Pairwise Temporal Key (unique Router <> Border Router)"
       gtk0:
         type: "string"
         description: "Group Temporal Key 0 (PAN wide)"
