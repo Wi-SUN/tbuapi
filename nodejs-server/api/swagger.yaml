@@ -29,6 +29,7 @@ paths:
         - 0
         - 1
         - 2
+        - 3
       responses:
         200:
           description: "Run mode response"
