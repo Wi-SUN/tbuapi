@@ -69,6 +69,15 @@ paths:
               type: "string"
               example: "FF02::1"
       x-swagger-router-controller: "Default"
+  /securityKeys:
+    get:
+      description: "Return the security keys populated on the node."
+      operationId: "securityKeysGET"
+      parameters: []
+      responses:
+        200:
+          description: "The security keys populated on the node."
+      x-swagger-router-controller: "Default"
 definitions:
   ApiResponse:
     type: "object"
