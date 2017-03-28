@@ -17,7 +17,3 @@ module.exports.phyPUT = function phyPUT (req, res, next) {
 module.exports.runModeModePUT = function runModeModePUT (req, res, next) {
   Default.runModeModePUT(req.swagger.params, res, next);
 };
-
-module.exports.securityKeysGET = function securityKeysGET (req, res, next) {
-  Default.securityKeysGET(req.swagger.params, res, next);
-};
