@@ -77,6 +77,8 @@ paths:
       responses:
         200:
           description: "The security keys populated on the node."
+          schema:
+            $ref: "#/definitions/SecKeys"
       x-swagger-router-controller: "Default"
 definitions:
   ApiResponse:
