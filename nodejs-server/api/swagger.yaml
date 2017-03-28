@@ -108,7 +108,7 @@ definitions:
         type: "integer"
         description: "TBD"
     description: "TBD"
-  SecurityKeys:
+  SecKeys:
     type: "object"
     properties:
       pmk:
