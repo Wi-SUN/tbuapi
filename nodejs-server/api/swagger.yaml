@@ -16,12 +16,12 @@ produces:
 paths:
   /runMode/{mode}:
     put:
-      description: "Set the run mode of the TBU"
+      description: "Set the run mode of the TBU's FAN stack"
       operationId: "runModeModePUT"
       parameters:
       - name: "mode"
         in: "path"
-        description: "0 == this, 1 == that, 2 == the other"
+        description: "0 == Stop, 1 == Cold Boot, 2 == Warm Boot, 3 == Factory Reset"
         required: true
         type: "integer"
         format: "int32"
@@ -69,6 +69,15 @@ paths:
               type: "string"
               example: "FF02::1"
       x-swagger-router-controller: "Default"
+  /securityKeys:
+    get:
+      description: "Return the security keys populated on the node."
+      operationId: "securityKeysGET"
+      parameters: []
+      responses:
+        200:
+          description: "The security keys populated on the node."
+      x-swagger-router-controller: "Default"
 definitions:
   ApiResponse:
     type: "object"
@@ -76,7 +85,8 @@ definitions:
       code:
         type: "integer"
         format: "int32"
-        description: "Return code. 0 == Success"
+        description: "Return code. 0 == Success, otherwise a Fail code (use an enum\
+          \ here)."
       message:
         type: "string"
         example: "Everything is ok"
@@ -98,3 +108,25 @@ definitions:
         type: "integer"
         description: "TBD"
     description: "TBD"
+  SecurityKeys:
+    type: "object"
+    properties:
+      pmk:
+        type: "string"
+        description: "Pairwise Master Key (unique Router - Border Router)"
+      ptk:
+        type: "string"
+        description: "Pairwise Temporal Key (unique Router - Border Router)"
+      gtk0:
+        type: "string"
+        description: "Group Temporal Key 0 (PAN wide)"
+      gtk1:
+        type: "string"
+        description: "Group Temporal Key 1 (PAN wide)"
+      gtk2:
+        type: "string"
+        description: "Group Temporal Key 2 (PAN wide)"
+      gtk3:
+        type: "string"
+        description: "Group Temporal Key 3 (PAN wide)"
+    description: "Security keys populated on the node. Value 0 means key is not populated."
