@@ -6,6 +6,10 @@ var url = require('url');
 var Default = require('./DefaultService');
 
 
+module.exports.dodagRoutesGET = function dodagRoutesGET (req, res, next) {
+  Default.dodagRoutesGET(req.swagger.params, res, next);
+};
+
 module.exports.ipAddressesGET = function ipAddressesGET (req, res, next) {
   Default.ipAddressesGET(req.swagger.params, res, next);
 };

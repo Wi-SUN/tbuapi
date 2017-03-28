@@ -80,6 +80,19 @@ paths:
           schema:
             $ref: "#/definitions/SecKeys"
       x-swagger-router-controller: "Default"
+  /dodagRoutes:
+    get:
+      description: "Return the DODAG downward routes populated on a Border Router."
+      operationId: "dodagRoutesGET"
+      parameters: []
+      responses:
+        200:
+          description: "The downward routes populated on a Border Router."
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/DodagRoute"
+      x-swagger-router-controller: "Default"
 definitions:
   ApiResponse:
     type: "object"
@@ -132,3 +145,10 @@ definitions:
         type: "string"
         description: "Group Temporal Key 3 (PAN wide)"
     description: "Security keys populated on the node. Value 0 means key is not populated."
+  DodagRoute:
+    type: "object"
+    properties:
+      route:
+        type: "string"
+        description: "A downward route"
+    description: "A DODAG downward route"
